@@ -1,21 +1,23 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, signal} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
 import {HeaderComponent} from './header/header.component';
 import {User} from './user/user';
 import {DUMMY_USERS} from './user/dummy-users';
+import {Tasks} from './tasks/tasks';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, User],
+  imports: [RouterOutlet, HeaderComponent, User, Tasks],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('disco-ang');
   users = DUMMY_USERS
+  name: string | undefined = undefined;
+  protected readonly title = signal('disco-ang');
 
-  onSelectUser(id: string){
-    console.log(id);
+  onSelectUser(id: string) {
+    this.name = DUMMY_USERS.find((user)=> id === user.id)?.name
   }
 
 }
