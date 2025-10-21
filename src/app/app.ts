@@ -13,11 +13,11 @@ import {Tasks} from './tasks/tasks';
 })
 export class App {
   users = DUMMY_USERS
-  name: string | undefined = undefined;
+  selectedUser: string | undefined = undefined;
   protected readonly title = signal('disco-ang');
 
   onSelectUser(id: string) {
-    this.name = DUMMY_USERS.find((user)=> id === user.id)?.name
+    this.selectedUser = DUMMY_USERS.find((user)=> id === user.id)?.name
   }
 
 }
