@@ -4,10 +4,11 @@ import {HeaderComponent} from './header/header.component';
 import {User} from './user/user';
 import {DUMMY_USERS} from './user/dummy-users';
 import {Tasks} from './tasks/tasks';
+import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, User, Tasks],
+  imports: [RouterOutlet, HeaderComponent, User, Tasks, NgForOf, NgIf],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
