@@ -5,6 +5,7 @@ import {User} from './user/user';
 import {DUMMY_USERS} from './user/dummy-users';
 import {Tasks} from './tasks/tasks';
 import {NgForOf, NgIf} from '@angular/common';
+import {UserDumy} from './user/types';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,11 @@ import {NgForOf, NgIf} from '@angular/common';
 })
 export class App {
   users = DUMMY_USERS
-  selectedUser: string | undefined = undefined;
+  selectedUser: UserDumy | undefined = undefined;
   protected readonly title = signal('disco-ang');
 
   onSelectUser(id: string) {
-    this.selectedUser = DUMMY_USERS.find((user)=> id === user.id)?.name
+    this.selectedUser = DUMMY_USERS.find((user)=> id === user.id)
   }
 
 }
