@@ -4,12 +4,11 @@ import {HeaderComponent} from './header/header.component';
 import {User} from './user/user';
 import {DUMMY_USERS} from './user/dummy-users';
 import {Tasks} from './tasks/tasks';
-import {NgForOf, NgIf} from '@angular/common';
 import {UserDumy} from './user/types';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, User, Tasks, NgForOf, NgIf],
+  imports: [RouterOutlet, HeaderComponent, User, Tasks],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -19,7 +18,7 @@ export class App {
   protected readonly title = signal('disco-ang');
 
   onSelectUser(id: string) {
-    this.selectedUser = DUMMY_USERS.find((user)=> id === user.id)
+    this.selectedUser = DUMMY_USERS.find((user) => id === user.id)
   }
 
 }
