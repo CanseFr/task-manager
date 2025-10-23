@@ -9,6 +9,7 @@ import {UserDumy} from './types';
 })
 export class User {
   @Input({required:true}) user!: UserDumy;
+  @Input({required:true}) selected!: boolean;
   @Output() select = new EventEmitter<string>();
 
   get imagePath() {
