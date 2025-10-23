@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {dummyTasks} from './const';
 import {TaksType} from './type';
 
@@ -10,4 +10,9 @@ import {TaksType} from './type';
 })
 export class Task {
   @Input({required: true}) task!: TaksType;
+  @Output() completeTask = new EventEmitter<string>();
+
+  onCompleteTask() {
+    this.completeTask.emit(this.task.id);
+  }
 }

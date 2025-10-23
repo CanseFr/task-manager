@@ -14,9 +14,14 @@ export class Tasks {
 
   @Input({required: true}) name!: string|undefined
   @Input({required: true}) userId!: string;
+  tasks= dummyTasks
 
   get selectedUserTasks() {
-    return dummyTasks.filter((t) => t.userId === this.userId)
+    return this.tasks.filter((t) => t.userId === this.userId)
+  }
+
+  onCompleteTask(taskId: string) {
+    this.tasks = this.tasks.filter((t) => t.id !== taskId)
   }
 
 }
