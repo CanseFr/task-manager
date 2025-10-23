@@ -9,31 +9,13 @@ import {UserDumy} from './types';
 })
 export class User {
   @Input({required:true}) user!: UserDumy;
-
-  // Old
-  // @Input({required:true}) id!:string;
-  // @Input({required: true}) avatar!: string
-  // @Input({required: true}) name!: string
   @Output() select = new EventEmitter<string>();
-
-  // ------------------------
-
-   // New
-  // avatar = input.required<string>();
-  // name = input.required<string>();
-  // select = output<string>()
 
   get imagePath() {
     return 'assets/users/' + this.user.avatar;
   }
 
-  // imagePath = computed(()=>{
-  //   return 'assets/users/' + this.avatar();
-  // })
-
   onSelectedUser() {
     this.select.emit(this.user.id);
-    // this.select.emit(this.name);
-    // this.select.emit(this.id);
   }
 }
