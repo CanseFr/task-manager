@@ -1,5 +1,5 @@
-<div class="backdrop"></div>
-<dialog open>
+<div [class.backdrop]="cancel" (click)="onCancel()" ></div>
+<dialog [open]="cancel">
   <h2>Add Task</h2>
   <form>
     <p>
@@ -18,8 +18,8 @@
     </p>
 
     <p class="actions">
-      <button type="button">Cancel</button>
-      <button type="submit">Create</button>
+      <button type="button" (click)="onCancel()" >Cancel</button>
+      <button type="submit" (click)="handleTaskForm()" >Create</button>
     </p>
   </form>
 </dialog>
