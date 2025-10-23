@@ -1,20 +1,33 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {NewTaskType} from './types';
 
 @Component({
   selector: 'app-new-task',
-  imports: [],
+  imports: [
+    FormsModule
+  ],
   templateUrl: './new-task.html',
   styleUrl: './new-task.css'
 })
+
+
 export class NewTask {
 
-  @Output() cancel=new EventEmitter<void>();
+  @Output() cancel = new EventEmitter<void>();
+  @Output() add = new EventEmitter<NewTaskType>();
+  enteredTitle = ''
+  enteredSummary = ''
+  enteredDate = ''
 
-  onCancel(){
+  onCancel() {
     this.cancel.emit()
   }
 
-  handleTaskForm() {
-
+  onSubmit() {
+    this.add.emit({
+      title: this.enteredTitle, summary: this.enteredSummary, date: this.enteredDate
+    })
   }
+
 }
