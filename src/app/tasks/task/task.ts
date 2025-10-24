@@ -2,11 +2,13 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {dummyTasks} from './const';
 import {TaksType} from './type';
 import {Card} from '../../shared/card/card';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-task',
   imports: [
-    Card
+    Card,
+    DatePipe
   ],
   templateUrl: './task.html',
   styleUrl: './task.css'
